@@ -1,0 +1,6 @@
+:root {
+	--main: var(--medium-grey);
+	--footer: var(--brown);
+	--h1: var(--beige);
+	--link: var(--beige);
+}

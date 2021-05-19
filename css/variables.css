@@ -1,0 +1,49 @@
+/* Fonts
+======================================================= */
+
+:root {
+	/* Styles */
+	--font-fallback:	Helvetica, Arial, sans-serif;
+	--font-main:		'Montserrat', var(--font-fallback);
+	--font-letter-sign:	'Oswald', var(--font-fallback);
+	--font-bold:		800;
+
+	/* Sizes */
+	--font-medium:		2.5rem;
+	--font-big:			4rem;
+	--font-small:		1.5rem;
+}
+
+
+/* Colors
+======================================================= */
+
+:root {
+	/* Original neutral theme */
+	--og-light-grey:	hsl(30, 3%, 87%);
+	--og-medium-grey:	hsl(60, 1%, 68%);
+	--og-dark-grey:		hsl(0, 1%, 38%);
+	--og-beige:			hsl(30, 59%, 76%);
+	--og-brown:			hsl(30, 18%, 32%);
+
+	/* Modified neutral colors */
+	--light-grey:		hsl(30, 3%, 91%);
+	--medium-grey:		hsl(60, 1%, 68%);
+	--dark-grey:		hsl(0, 1%, 18%);
+	--light-beige:		hsl(30, 60%, 93%);
+	--beige:			hsl(30, 59%, 76%);
+	--brown:			hsl(31, 18%, 32%);
+
+	/* From snacks SVGs */
+	--popcorn-red:		 #dd3e46;
+}
+
+
+/* Misc
+======================================================= */
+
+:root {
+	--box-shadow:		rgba(0, 0, 0, 0.5) 5px 5px 10px;
+	--text-shadow:		rgba(0, 0, 0, 0.5) 1px 1px 3px;
+	--filter-shadow:	drop-shadow(rgba(0, 0, 0, 0.5) 2px 2px 3px);
+}
