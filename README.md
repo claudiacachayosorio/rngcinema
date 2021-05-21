@@ -1,6 +1,6 @@
 # RNG Cinema
 
-Movie theater themed static website with a randomly selected trailer and complementary color theme output every hour by a scheduled Lambda function. Built with AWS Lambda, Node JS and an unnecessary amount of movies.
+Movie theater themed static website featuring a randomly selected trailer and complementary color theme output every hour by a scheduled Lambda function. Built with AWS, Node.js and pure CSS.
 
 My take on this [DevProjects prompt](https://www.codementor.io/projects/web/personal-website-with-randomly-generated-design-atx32ht3j3) by [Tash Postolovski](https://github.com/npostolovski).
 
@@ -11,8 +11,7 @@ My take on this [DevProjects prompt](https://www.codementor.io/projects/web/pers
 * [Flaticon](https://www.flaticon.com)
 	* Popcorn, Burger & 3D glasses by smalllikeart
 	* Heart Play Button by Freepik
-* [Icons8](https://icons8.com) AWS
-* [Font Awesome](https://fontawesome.com) JavaScript, GitHub
+* [Font Awesome](https://fontawesome.com) Node, AWS, GitHub
 
 ### Fonts
 * [Montserrat](https://fonts.google.com/specimen/Montserrat) by Julieta Ulanovsky
