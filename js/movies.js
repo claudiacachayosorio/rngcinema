@@ -12,7 +12,7 @@ class Movie {
 			main:	`hsl(${mainBg})`,
 			h1:		`hsl(${h1Bg})`,
 			footer:	`hsl(${footerBg})`,
-			link:	`hsl(${linkColor})`,
+			link:	`hsl(${linkColor})`
 		}
 	}
 }
