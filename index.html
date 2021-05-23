@@ -11,15 +11,15 @@
 
 	<link rel="shortcut icon" type="image/png" href="assets/3d-glasses.svg">
 	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/theme.css">
 </head>
 <body>
 
-<main class="col-1">
+<main class="col-1" id="main">
 
 	<div class="h1">
 		<h1>RNG Cinema</h1>
-	</div><!-- h1 -->
+	</div>
 
 	<div class="letter-board">
 		<h2 class="letter-board-half-1">
@@ -35,17 +35,7 @@
 		</h2>
 	</div><!-- letter-board -->
 
-	<iframe
-		width="1008"
-		height="567"
-		src="https://www.youtube.com/embed/ii3n7hYQOl4"
-		title="YouTube video player"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		allowfullscreen
-		id="player"
-		class="player"
-	></iframe>
+	<div id="player" class="player"></div>
 
 	<div class="snacks">
 		<span class="snacks-i i i_popcorn">
@@ -58,7 +48,7 @@
 
 </main>
 
-<footer class="col-1">
+<footer class="col-1" id="footer">
 
 	<p class="tagline">
 		Built with 
@@ -91,6 +81,8 @@
 	</div><!-- stack -->
 
 </footer>
+
+<script src="js/index.js"></script>
 
 </body>
 </html>

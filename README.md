@@ -28,5 +28,6 @@ My take on this [DevProjects prompt](https://www.codementor.io/projects/web/pers
 * [Hosting a static website on S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html)
 * [Schedule expressions](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents-expressions.html)
 * [Lambda with S3](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
+* [Youtube IFrame API](https://developers.google.com/youtube/iframe_api_reference)
 * [Simple color workflow](https://www.smashingmagazine.com/2016/04/web-developer-guide-color/)
 * [Flexbox guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
