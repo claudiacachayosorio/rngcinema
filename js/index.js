@@ -32,17 +32,6 @@ function getHSL(arr) {
 const mainElement = document.getElementById('main');
 mainElement.style.transition = 'background 5s';
 
-// ! hsl values get immediately converted to rgb in browser
-const getDarkHSL = arr => getHSL([ arr[0], arr[1], '50%' ]);
-
-function darkenMainBg() {
-	const hsl = `hsl(${defaultArr[0]}, ${defaultArr[1]}, 50%)`
-	//const darkHSL = getDarkHSL(defaultArr);
-	mainElement.style.backgroundColor = hsl;
-	console.log(main.style)
-}
+const darkenMainBg = () => mainElement.style.background = '#000';
 
 const lightenMainBg = () => mainElement.style.background = getHSL(defaultArr);
-
-mainElement.onclick = darkenMainBg;
-document.getElementById('footer').onclick = lightenMainBg;
