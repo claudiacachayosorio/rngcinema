@@ -1,0 +1,527 @@
+- video: 'EisokUNMfeA'
+  title:
+    - "Addams Family Values"
+  actors:
+    - "Anjelica Huston"
+    - "Christina Ricci"
+  colors:
+    - '19191f'
+    - '8b54a0'
+    - '49286c'
+    - 'b79185'
+
+- video: 'dIdxxvph-Vw'
+  title:
+    - "Angry Indian"
+    - "Goddesses"
+  actors:
+    - "Sarah-Jane Dias"
+    - "Sandhya Mridul"
+  colors:
+    - 'c22929'
+    - 'f5d07a'
+    - '1a0900'
+    - 'fabc66'
+
+- video: 'p9wE8dyzEJE'
+  title:
+    - "A Quiet Place"
+  actors:
+    - "Emily Blunt"
+    - "John Krasinski"
+  colors:
+    - '4e5f52'
+    - 'a99375'
+    - '181f21'
+    - 'a7585c'
+
+- video: 'ZLO4X6UI8OY'
+  title:
+    - "Arrival"
+  actors:
+    - "Amy Adams"
+    - "Jeremy Renner"
+  colors:
+    - '92939b'
+    - 'ea8148'
+    - '334142'
+    - 'ebd0b2'
+
+- video: 'qvsgGtivCgs'
+  title:
+    - "Back to the Future"
+  actors:
+    - "Michael J. Fox"
+    - "Christopher Lloyd"
+  colors:
+    - '962613'
+    - 'e2961d'
+    - '242447'
+    - 'f39c12'
+
+- video: 'MdENmefJRpw'
+  title:
+    - "Back to the Future"
+    - "Part II"
+  actors:
+    - "Michael J. Fox"
+    - "Christopher Lloyd"
+  colors:
+    - 'b45427'
+    - 'e6c13d'
+    - '2b475f'
+    - 'e1a751'
+
+- video: 'xjDjIWPwcPU'
+  title:
+    - "Black Panther"
+  actors:
+    - "Chadwick Boseman"
+    - "Michael B. Jordan"
+  colors:
+    - '5a209d'
+    - '1981d7'
+    - '090910'
+    - 'e4cd72'
+
+- video: 'TEHWDA_6e3M'
+  title:
+    - "Brave"
+  actors:
+    - "Kelly Macdonald"
+    - "Emma Thompson"
+  colors:
+    - '048fb9'
+    - 'e6711e'
+    - '033a1c'
+    - 'ef975d'
+
+- video: 'HnUvneNxoz8'
+  title:
+    - "But I'm a"
+    - "Cheerleader"
+  actors:
+    - "Natasha Lyonne"
+    - "Clea DuVall"
+  colors:
+    - 'db4d88'
+    - '8891d3'
+    - '163f74'
+    - 'f68360'
+
+- video: 'EH3zcuRQXNo'
+  title:
+    - "Carol"
+  actors:
+    - "Cate Blanchett"
+    - "Rooney Mara"
+  colors:
+    - '795225'
+    - 'e8be64'
+    - '033f37'
+    - 'dda95a'
+
+- video: 'd-jE5WJ7J28'
+  title:
+    - "Confessions of a"
+    - "Shopaholic"
+  actors:
+    - "Isla Fisher"
+    - "Hugh Dancy"
+  colors:
+    - 'e61e3f'
+    - '00bd94'
+    - '417c41'
+    - 'fba746'
+
+- video: 'KNbPnqyvItk'
+  title:
+    - "Easy A"
+  actors:
+    - "Emma Stone"
+    - "Amanda Bynes"
+  colors:
+    - '3d6c57'
+    - 'dbb148'
+    - '653725'
+    - 'ee3f44'
+
+- video: 'DzfpyUB60YY'
+  title:
+    - "Get Out"
+  actors:
+    - "Daniel Kaluuya"
+    - "Allison Williams"
+  colors:
+    - '2c3d6d'
+    - 'f3f1f9'
+    - '161a1d'
+    - 'f1d08e'
+
+- video: '2-_-1nJf8Vg'
+  title:
+    - "Gone Girl"
+  actors:
+    - "Rosamund Pike"
+    - "Ben Affleck"
+  colors:
+    - '769698'
+    - 'aca38b'
+    - '323f52'
+    - '959692'
+
+- video: 'PbdM1db3JbY'
+  title:
+    - "Harry Potter"
+    - "and the Philosopher's Stone"
+  actors:
+    - "Daniel Radcliffe"
+    - "Emma Watson"
+  colors:
+    - '9f1e2f'
+    - 'eaac2e'
+    - '161c23'
+    - 'face70'
+
+- video: 'NPdCD_QYoMs'
+  title:
+    - "Harry Potter"
+    - "and the Chamber of Secrets"
+  actors:
+    - "Daniel Radcliffe"
+    - "Emma Watson"
+  colors:
+    - '245b52'
+    - 'd6bc29'
+    - '0c311d'
+    - 'affde7'
+
+- video: '1ZdlAg3j8nI'
+  title:
+    - "Harry Potter"
+    - "and the Prisoner of Azkaban"
+  actors:
+    - "Daniel Radcliffe"
+    - "Emma Watson"
+  colors:
+    - '427476'
+    - 'd3bb88'
+    - '152837'
+    - 'b0b4bf'
+
+- video: 'yE07FbWmew8'
+  title:
+    - "High School Musical"
+  actors:
+    - "Zac Efron"
+    - "Vanessa Hudgens"
+  colors:
+    - 'ea6b48'
+    - 'f7d43b'
+    - '880204'
+    - 'f6e69d'
+
+- video: 'k-t4vqd534Y'
+  title:
+    - "High School Musical 2"
+  actors:
+    - "Zac Efron"
+    - "Vanessa Hudgens"
+  colors:
+    - '09a0dc'
+    - 'f5ca2e'
+    - 'aa2755'
+    - 'f5ce5c'
+
+- video: '6R-JzVDt30k'
+  title:
+    - "High School Musical 3:"
+    - "Senior Year"
+  actors:
+    - "Zac Efron"
+    - "Vanessa Hudgens"
+  colors:
+    - '9c140d'
+    - 'f2eade'
+    - '31241b'
+    - 'fddb53'
+
+- video: 'XJ69WnwvZhE'
+  title:
+    - "Incendies"
+  actors:
+    - "Lubna Azabal"
+    - "Mélissa Désormeaux-Poulin"
+  colors:
+    - 'c81e23'
+    - 'e8b68d'
+    - '4b070d'
+    - 'd1b79f'
+
+- video: 'qRYDNWXuip8'
+  title:
+    - "Inglourious Basterds"
+  actors:
+    - "Brad Pitt"
+    - "Mélanie Laurent"
+  colors:
+    - 'eedfbe'
+    - 'd12e31'
+    - '3f4a44'
+    - 'd99b45'
+
+- video: 'QWBKEmWWL38'
+  title:
+    - "Jurassic Park"
+  actors:
+    - "Sam Neil"
+    - "Laura Dern"
+  colors:
+    - '4b3726'
+    - 'fc1703'
+    - '23341e'
+    - 'e5af24'
+
+- video: '2UT5xaAfxWU'
+  title:
+    - "Le Fabuleux Destin"
+    - "d'Amélie Poulain"
+  actors:
+    - "Audrey Tautou"
+    - "Mathieu Kassovitz"
+  colors:
+    - '245813'
+    - 'f9d10b'
+    - '171b1c'
+    - 'fcf0a1'
+
+- video: 'vWOHwI_FgAo'
+  title:
+    - "Legally Blonde"
+  actors:
+    - "Reese Witherspoon"
+    - "Moonie"
+  colors:
+    - 'f86285'
+    - 'f8b420'
+    - '70287b'
+    - 'f6db65'
+
+- video: 'qhYtVMoWFNQ'
+  title:
+    - "Les Choristes"
+  actors:
+    - "Gérard Jugnot"
+    - "Jean-Baptiste Maunier"
+  colors:
+    - 'f2deb1'
+    - 'd1a86b'
+    - '3a2c22'
+    - 'e0be8a'
+
+- video: 'QRoWiTcO7dk'
+  title:
+    - "Mamma Mia!"
+  actors:
+    - "Amanda Seyfried"
+    - "Meryl Streep"
+  colors:
+    - '6bc0eb'
+    - 'e0e2eb'
+    - '3c4677'
+    - 'd48cb7'
+
+- video: 'hUGHWje7liM'
+  title:
+    - "Matilda"
+  actors:
+    - "Mara Wilson"
+    - "Embeth Davidtz"
+  colors:
+    - '265287'
+    - 'e34a54'
+    - '3f8359'
+    - 'd5d84b'
+
+- video: 'oDU84nmSDZY'
+  title:
+    - "Mean Girls"
+  actors:
+    - "Lindsay Lohan"
+    - "Rachel McAdams"
+  colors:
+    - 'b2b1c3'
+    - 'c8198d'
+    - '740669'
+    - 'ebadba'
+
+- video: '4CV41hoyS8A'
+  title:
+    - "Memento"
+  actors:
+    - "Guy Pearce"
+    - "Carrie-Anne Moss"
+  colors:
+    - 'ddc75a'
+    - 'e9e3c8'
+    - '7c4736'
+    - 'c4beab'
+
+- video: cPAbx5kgCJo
+  title:
+    - "Moana"
+  actors:
+    - "Auli'i Cravalho"
+    - "Dwayne Johnson"
+  colors:
+    - '16c6da'
+    - 'fb835b'
+    - '35241d'
+    - '94b950'
+
+- video: '9NJj12tJzqc'
+  title:
+    - "Moonlight"
+  actors:
+    - "Trevante Rhodes"
+    - "André Holland"
+  colors:
+    - '4c3f6e'
+    - '17a6b0'
+    - '202f56'
+    - '6ccada'
+
+- video: 'TVcLIfSC4OE'
+  title:
+    - "Mulan"
+  actors:
+    - "Ming-Na Wen"
+    - "BD Wong"
+  colors:
+    - '981210'
+    - 'fcb603'
+    - '252956'
+    - 'ffe74d'
+
+- video: '5xH0HfJHsaY'
+  title:
+    - "Parasite"
+  actors:
+    - "Song Kang-ho"
+    - "Cho Yeo-jeong"
+  colors:
+    - '8fb57d'
+    - 'e8f2eb'
+    - '165528'
+    - 'e3d1b0'
+
+- video: '6BS27ngZtxg'
+  title:
+    - "Roma"
+  actors:
+    - "Yalitza Aparicio"
+    - "Marina de Tavira"
+  colors:
+    - '636363'
+    - 'e3ba16'
+    - '303030'
+    - 'a2a2a0'
+
+- video: 'CwXOrWvPBPk'
+  title:
+    - "Shrek"
+  actors:
+    - "Mike Myers"
+    - "Cameron Diaz"
+  colors:
+    - '017401'
+    - 'e0eb42'
+    - '043925'
+    - 'cfdb29'
+
+- video: 'ii3n7hYQOl4'
+  title:
+    - "Spider-Man:"
+    - "Into the Spider-Verse"
+  actors:
+    - "Shameik Moore"
+    - "Jake Johnson"
+  colors:
+    - 'd60400'
+    - '82bfd9'
+    - '263b32'
+    - 'b3b1dd'
+
+- video: 'GE5aHKJp6HI'
+  title:
+    - "Spy Kids"
+  actors:
+    - "Alexa Vega"
+    - "Daryl Sabara"
+  colors:
+    - 'f4ae6c'
+    - 'c4bfab'
+    - '9a1f1d'
+    - 'f8b06d'
+
+- video: '8tTJ7kMgANg'
+  title:
+    - "Spy Kids 2"
+    - "The Island of Lost Dreams"
+  actors:
+    - "Alexa Vega"
+    - "Daryl Sabara"
+  colors:
+    - 'eb693d'
+    - 'b8b7a8'
+    - '74252c'
+    - 'f9cb58'
+
+- video: '6ZOZwUQKu3E'
+  title:
+    - "The Devil"
+    - "Wears Prada"
+  actors:
+    - "Anne Hathaway"
+    - "Meryl Streep"
+  colors:
+    - 'e9ecda'
+    - 'da2501'
+    - '2b3e73'
+    - 'd5c2a4'
+
+- video: 'ej3ioOneTy8'
+  title:
+    - "The Martian"
+  actors:
+    - "Matt Damon"
+    - "Jessica Chastain"
+  colors:
+    - 'aa5e27'
+    - 'e1ae37'
+    - '791a0b'
+    - 'eec181'
+
+- video: 'dlnmQbPGuls'
+  title:
+    - "The Truman Show"
+  actors:
+    - "Jim Carrey"
+    - "Laura Linney"
+  colors:
+    - '4f8ec4'
+    - 'acaaac'
+    - '484d32'
+    - 'b6c7dd'
+
+- video: '_e2igZexpMs'
+  title:
+    - "West Side Story"
+  actors:
+    - "Natalie Wood"
+    - "Richard Beymer"
+  colors:
+    - '91302b'
+    - 'f1e5c5'
+    - '271620'
+    - 'b8a7b9'

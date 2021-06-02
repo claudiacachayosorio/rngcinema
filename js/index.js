@@ -6,7 +6,10 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 // Change background color
-const defaultBg = 'hsl(60, 1%, 68%)';
+
+// ! replace bg variable with current one from lambda function
+const defaultBg = '#e6c29e';
+
 const mainElement = document.getElementById('main');
 mainElement.style.transition = 'background 5s';
 

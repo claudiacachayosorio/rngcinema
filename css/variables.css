@@ -20,19 +20,19 @@
 
 :root {
 	/* Original neutral theme */
-	--og-light-grey:	hsl(30, 3%, 87%);
-	--og-medium-grey:	hsl(60, 1%, 68%);
-	--og-dark-grey:		hsl(0, 1%, 38%);
-	--og-beige:			hsl(30, 59%, 76%);
-	--og-brown:			hsl(30, 18%, 32%);
+	--og-light-grey:	#dfdedd;
+	--og-medium-grey:	#aeaead;
+	--og-dark-grey:		#626060;
+	--og-beige:			#e6c29e;
+	--og-brown:			#605243;
 
 	/* Modified neutral colors */
-	--light-grey:		hsl(30, 3%, 91%);
-	--medium-grey:		hsl(60, 1%, 68%);
-	--dark-grey:		hsl(0, 1%, 18%);
-	--light-beige:		hsl(30, 60%, 93%);
-	--beige:			hsl(30, 59%, 76%);
-	--brown:			hsl(31, 18%, 32%);
+	--light-grey:		#e9e8e7;
+	--medium-grey:		#aeaead;
+	--dark-grey:		#2e2d2d;
+	--light-beige:		#f8ede2;
+	--beige:			#e6c29e;
+	--brown:			#605243;
 
 	/* From snacks SVGs */
 	--popcorn-red:		 #dd3e46;
