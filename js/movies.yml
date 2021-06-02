@@ -1,3 +1,11 @@
+# video ID          from url query
+# title             if long, 2 items
+# actors            2 main actors
+# color: main       any color, contrast with snacks svgs
+# color: footer     dark color, contrast with icons
+# color: h1         light color, background to h1
+# color: link       light color, footer links
+
 - video: "EisokUNMfeA"
   title:
     - "Addams Family Values"
