@@ -5,24 +5,18 @@ const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
-// Change background color
-const mainElement = document.getElementById('main');
-mainElement.style.transition = 'background 5s';
-
-const darkenMainBg = () => mainElement.style.background = '#000';
-const lightenMainBg = () => mainElement.style.background = '#aeaead';
-
-
 // Event handler
+const mainElement = document.querySelector('main');
+
 function onPlayerStateChange(e) {
 	switch(e.data) {
 		case 1: //playing
 		case 3: //buffering
-			darkenMainBg();
+			mainElement.style.background = '#000';
 			break;
 		case 0: //ended
 		case 2: //paused
-			lightenMainBg();
+			mainElement.style.background = '#aeaead';
 			break;
 	}
 }

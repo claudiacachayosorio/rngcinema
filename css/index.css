@@ -1,4 +1,5 @@
 @import 'variables.css';
+@import 'theme.css';
 
 
 /* Settings
@@ -17,6 +18,10 @@ body {
 	font-size: var(--font-medium);
 	font-family: var(--font-main);
 	font-weight: 400;
+}
+
+main {
+	transition: background 5s;
 }
 
 a {
@@ -74,7 +79,8 @@ h1 {
 
 .letter-board {
 	font-family: var(--font-letter-sign);
-	font-size: var(--font-small);
+	font-size: var(--font-medium);
+	font-weight: var(--font-bold);
 	text-transform: uppercase;
 	letter-spacing: 0.5rem;
 	word-spacing: 0.5rem;
@@ -89,22 +95,22 @@ h1 {
 	flex-flow: row wrap;
 }
 
-.letter-board-half-1 {
-	flex-grow: 2;
+.letter-board-col {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
 }
 
-.letter-board-half-2 {
-	flex-grow: 3;
-}
-
-.letter-board-block {
+.letter-board-row {
 	border-bottom: var(--dark-grey) solid 2px;
 	width: inherit;
 	padding: 0.5rem 2rem;
+	flex-grow: 1;
 }
 
-.letter-board-title {
+.letter-board-heading {
 	color: var(--popcorn-red);
+	font-size: inherit;
 }
 
 
@@ -114,6 +120,7 @@ h1 {
 .player {
 	background: #000;
 	box-shadow: var(--box-shadow);
+
 	height: calc(70vw * 0.5625);
 	width: 70vw;
 	margin-top: 6rem;
@@ -128,8 +135,8 @@ h1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	width: 100%;
 
+	width: 100%;
 	position: relative;
 	top: 1rem;
 }
