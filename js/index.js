@@ -6,18 +6,13 @@ tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// Generate IFrame
-const playerParams = {
-	height: '390',
-	width: '640',
-	videoId: 'ii3n7hYQOl4',
-	playerVars: {
-		'playsinline': 1
-	}
-}
+// Create player object
+let player;
+const playerParams = {};
 
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', playerParams);
+	console.log(playerParams);
 }
 
 

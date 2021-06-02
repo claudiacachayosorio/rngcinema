@@ -6,7 +6,8 @@ class Movie {
 		this.videoId = videoId;
 		this.html = {
 			title:	[ title, restOfTitle ],
-			actors:	[ actor1, actor2 ]
+			actors:	[ actor1, actor2 ],
+			ytsrc:	`https://www.youtube.com/embed/${videoId}?enablejsapi=1`
 		}
 		this.colors = {
 			main:	mainBg,
