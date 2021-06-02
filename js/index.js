@@ -6,21 +6,16 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 // Change background color
-
-// ! replace bg variable with current one from lambda function
-const defaultBg = '#e6c29e';
-
 const mainElement = document.getElementById('main');
 mainElement.style.transition = 'background 5s';
 
 const darkenMainBg = () => mainElement.style.background = '#000';
-const lightenMainBg = () => mainElement.style.background = defaultBg;
+const lightenMainBg = () => mainElement.style.background = '#aeaead';
 
 
 // Event handler
 function onPlayerStateChange(e) {
-	const state = e.data;
-	switch(state) {
+	switch(e.data) {
 		case 1: //playing
 		case 3: //buffering
 			darkenMainBg();
@@ -35,11 +30,15 @@ function onPlayerStateChange(e) {
 
 // Create player object
 let player;
-const iframeId = 'player';
 const playerParams = {
-	events: { 'onStateChange': onPlayerStateChange }
-};
+	height: '390',
+	width: '640',
+	videoId: 'ii3n7hYQOl4',
+	events: {
+		'onStateChange': onPlayerStateChange
+	}
+}
 
 function onYouTubeIframeAPIReady() {
-	player = new YT.Player(iframeId, playerParams);
+	player = new YT.Player('player', playerParams);
 }
