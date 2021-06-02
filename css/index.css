@@ -1,2 +1,192 @@
 @import 'variables.css';
-@import 'main.css';
+
+
+/* Settings
+======================================================= */
+
+* {
+	margin: 0;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	color: var(--dark-grey);
+	font-size: var(--font-medium);
+	font-family: var(--font-main);
+	font-weight: 400;
+}
+
+a {
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+a:hover {
+	filter: saturate(200%);
+}
+
+/* set dimensions with span */
+.i a, .i svg {
+	height: inherit;
+	width: inherit;
+}
+
+.i svg {
+	filter: var(--filter-shadow);
+}
+
+/* 1 column layout */
+.col-1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: inherit;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+
+/* Main heading
+======================================================= */
+
+.h1 {
+	text-align: center;
+	border-radius: 30px 30px 0 0;
+	box-shadow: var(--box-shadow);
+
+	margin: 5rem 12% 0 12%;
+	padding: 1.5rem 0;
+}
+
+h1 {
+	font-weight: var(--font-bold);
+	text-transform: uppercase;
+	text-shadow: var(--text-shadow);
+	margin: 0 4rem;
+}
+
+
+/* Letter board
+======================================================= */
+
+.letter-board {
+	font-family: var(--font-letter-sign);
+	font-size: var(--font-small);
+	text-transform: uppercase;
+	letter-spacing: 0.5rem;
+	word-spacing: 0.5rem;
+
+	background: var(--light-beige);
+	border: var(--dark-grey) solid 10px;
+	box-shadow: var(--box-shadow);
+	border-radius: 5px;
+
+	width: 80%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.letter-board-half-1 {
+	flex-grow: 2;
+}
+
+.letter-board-half-2 {
+	flex-grow: 3;
+}
+
+.letter-board-block {
+	border-bottom: var(--dark-grey) solid 2px;
+	width: inherit;
+	padding: 0.5rem 2rem;
+}
+
+.letter-board-title {
+	color: var(--popcorn-red);
+}
+
+
+/* Youtube player
+======================================================= */
+
+.player {
+	background: #000;
+	box-shadow: var(--box-shadow);
+	height: calc(70vw * 0.5625);
+	width: 70vw;
+	margin-top: 6rem;
+	margin-bottom: 2rem;
+}
+
+
+/* Snacks icons
+======================================================= */
+
+.snacks {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 100%;
+
+	position: relative;
+	top: 1rem;
+}
+
+.i_popcorn {
+	height: 9rem;
+}
+
+.i_burger {
+	height: 10rem;
+}
+
+.i_burger svg {
+	margin-top: 0.5rem;
+}
+
+
+/* Footer
+======================================================= */
+
+footer {
+	color: var(--light-grey);
+	text-align: center;
+	padding: 3rem 0;
+}
+
+.footer-i {
+	height: 2.5rem;
+	vertical-align: middle;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
+}
+
+.tagline {
+	margin-bottom: 1rem;
+}
+
+.i_heart svg {
+	margin-top: 3px;
+}
+
+
+/* Randomized styles
+======================================================= */
+
+main {
+	background: var(--main);
+}
+
+footer {
+	background: var(--footer);
+}
+
+.h1 {
+	background: var(--h1);
+}
+
+footer a {
+	color: var(--link);
+}
