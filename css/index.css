@@ -98,6 +98,8 @@ h1 {
 
 	width: 80%;
 	display: grid;
+	/* rows still full size if no content */
+	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
 		"titleh actorh"
 		"title1 actor1"
@@ -131,6 +133,13 @@ h1 {
 
 .tile_actor-2 {
 	grid-area: actor2;
+}
+
+@media screen and (max-width: 850px) {
+	.board {
+		display: initial;
+		width: 70%;
+	}
 }
 
 
