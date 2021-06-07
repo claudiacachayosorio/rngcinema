@@ -77,21 +77,6 @@ h1 {
 /* Letter board
 ======================================================= */
 
-.board {
-	background: var(--light-beige);
-	border: var(--dark-grey) solid 10px;
-	box-shadow: var(--box-shadow);
-	border-radius: 5px;
-
-	width: 80%;
-	display: grid;
-}
-
-.board-tile {
-	border-bottom: var(--dark-grey) solid 2px;
-	padding: 0.5rem 2rem;
-}
-
 .board-text {
 	font-family: var(--font-letter-sign);
 	font-size: var(--font-medium);
@@ -103,6 +88,49 @@ h1 {
 
 .board-h2 {
 	color: var(--popcorn-red);
+}
+
+.board {
+	background: var(--light-beige);
+	border: var(--dark-grey) solid 10px;
+	box-shadow: var(--box-shadow);
+	border-radius: 5px;
+
+	width: 80%;
+	display: grid;
+	grid-template-areas:
+		"titleh actorh"
+		"title1 actor1"
+		"title2 actor2";
+}
+
+.board-tile {
+	border-bottom: var(--dark-grey) solid 2px;
+	padding: 0.5rem 2rem;
+}
+
+.tile_title-h {
+	grid-area: titleh;
+}
+
+.tile_title-1 {
+	grid-area: title1;
+}
+
+.tile-title-2 {
+	grid-area: title2;
+}
+
+.tile_actor-h {
+	grid-area: actorh;
+}
+
+.tile_actor-1 {
+	grid-area: actor1;
+}
+
+.tile_actor-2 {
+	grid-area: actor2;
 }
 
 
