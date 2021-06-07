@@ -1,6 +1,6 @@
 # RNG Cinema
 
-Movie theater themed static website. Displays a trailer and complementary color theme selected at random every hour. Built with AWS Lambda, Node.js and pure CSS.
+Movie theater themed website. Displays a trailer and complementary color theme selected at random every hour. Built with AWS Lambda, Node.js, pure CSS and Youtube IFrame API.
 
 My take on this [DevProjects prompt](https://www.codementor.io/projects/web/personal-website-with-randomly-generated-design-atx32ht3j3) by [Tash Postolovski](https://github.com/npostolovski).
 
@@ -30,4 +30,4 @@ My take on this [DevProjects prompt](https://www.codementor.io/projects/web/pers
 * [Lambda with S3](https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html)
 * [Youtube IFrame API](https://developers.google.com/youtube/iframe_api_reference)
 * [Simple color workflow](https://www.smashingmagazine.com/2016/04/web-developer-guide-color/)
-* [Flexbox guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [CSS Grid Tutorial](https://www.youtube.com/watch?v=EFafSYg-PkI)
