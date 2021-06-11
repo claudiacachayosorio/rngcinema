@@ -123,15 +123,15 @@ h1 {
 	grid-area: title2;
 }
 
-.tile_actor-h {
+.tile_actors-h {
 	grid-area: actorh;
 }
 
-.tile_actor-1 {
+.tile_actors-1 {
 	grid-area: actor1;
 }
 
-.tile_actor-2 {
+.tile_actors-2 {
 	grid-area: actor2;
 }
 

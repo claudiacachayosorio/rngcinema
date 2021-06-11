@@ -1,3 +1,5 @@
+//const movie = require('./theme.js');
+
 // Youtube API call
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -7,6 +9,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // Event handler
 const mainElement = document.querySelector('main');
+// const currBg = movie.colors[0];
 
 function onPlayerStateChange(e) {
 	switch(e.data) {
@@ -36,3 +39,20 @@ const playerParams = {
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', playerParams);
 }
+
+
+
+// Letter board
+
+/*
+function setHTML(arr) {
+	for (i = 0; i < movie[arr].length; i++) {
+		const name = Object.keys(movie).find(k => k == arr);
+		const id = `${name}-${i + 1}`;
+		const element = document.getElementById(id);
+		element.innerHTML = movie[arr][i];
+	}
+}
+setHTML('title');
+setHTML('actors');
+*/
