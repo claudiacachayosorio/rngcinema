@@ -19,28 +19,47 @@ function generateCSSBody(theme) {
 	return `:root {${cssStr}}`;
 }
 
+function generateJSBody(theme) {
+	const str = JSON.stringify(theme);
+	return `export const theme = ${str}`;
+}
+
 exports.handler = async (event) => {
 
-	const bucket = event.Records[0].s3.bucket.name;
-	const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '));
+	const bucket = "rngcinema";
+	const cssKey = "css/theme.css";
+	const jsKey = "js/theme.js";
 
 	const theme = getTheme();
-	const css = generateCSSBody(theme);
+	const cssBody = generateCSSBody(theme);
+	const jsBody = generateJSBody(theme);
 
 	try {
-		const params = {
+		const cssParams = {
 			Bucket: bucket,
-			Key: key,
-			Body: css,
+			Key: cssKey,
+			Body: cssBody,
 			ContentType: "text/css"
 		}
-		const output = await s3.putObject(params).promise();
-
+		const putCSS = await s3.putObject(cssParams).promise();
 	} catch(err) {
 		console.log(err);
 		return;
 	}
 
-	console.log(`${bucket}/${key} updated to theme ${theme.title}`);
+	try {
+		const jsParams = {
+			Bucket: bucket,
+			Key: jsKey,
+			Body: jsBody,
+			ContentType: "application/javascript"
+		}
+		const putJS = await s3.putObject(jsParams).promise();
+	} catch(err) {
+		console.log(err);
+		return;
+	}
+
+	console.log(`${cssKey} and ${jsKey} updated to theme ${theme.title.join(' ')}`);
 
 }

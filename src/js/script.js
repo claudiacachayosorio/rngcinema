@@ -1,5 +1,6 @@
-//const movie = require('./theme.js');
+import { theme } from './theme.js';
 
+/*
 // Youtube API call
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -9,7 +10,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // Event handler
 const mainElement = document.querySelector('main');
-// const currBg = movie.colors[0];
+const themeBg = `#${theme.colors[0]}`;
 
 function onPlayerStateChange(e) {
 	switch(e.data) {
@@ -19,7 +20,7 @@ function onPlayerStateChange(e) {
 			break;
 		case 0: //ended
 		case 2: //paused
-			mainElement.style.background = '#aeaead';
+			mainElement.style.background = themeBg;
 			break;
 	}
 }
@@ -30,7 +31,7 @@ let player;
 const playerParams = {
 	height: '390',
 	width: '640',
-	videoId: 'ii3n7hYQOl4',
+	videoId: theme.video,
 	events: {
 		'onStateChange': onPlayerStateChange
 	}
@@ -39,20 +40,18 @@ const playerParams = {
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', playerParams);
 }
-
-
+*/
 
 // Letter board
-
-/*
 function setHTML(arr) {
-	for (i = 0; i < movie[arr].length; i++) {
-		const name = Object.keys(movie).find(k => k == arr);
-		const id = `${name}-${i + 1}`;
+	const arrName = Object.keys(theme).find(k => k == arr);
+
+	for (i = 0; i < theme[arr].length; i++) {
+		const id = `${arrName}-${i + 1}`;
 		const element = document.getElementById(id);
-		element.innerHTML = movie[arr][i];
+		element.innerHTML = theme[arr][i];
 	}
 }
+
 setHTML('title');
 setHTML('actors');
-*/
