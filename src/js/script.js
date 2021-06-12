@@ -1,6 +1,6 @@
 import { theme } from './theme.js';
 
-/*
+
 // Youtube API call
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -40,7 +40,7 @@ const playerParams = {
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', playerParams);
 }
-*/
+
 
 // Letter board
 function setHTML(arr) {
