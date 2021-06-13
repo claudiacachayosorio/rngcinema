@@ -135,10 +135,13 @@ h1 {
 	grid-area: actor2;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 875px) {
 	.board {
-		display: initial;
-		width: 70%;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-areas:
+			"titleh" "title1" "title2"
+			"actorh" "actor1" "actor2";
 	}
 }
 
@@ -204,6 +207,7 @@ footer {
 }
 
 .i_heart svg {
+	fill: var(--soda-red);
 	margin-top: 3px;
 }
 
@@ -215,12 +219,12 @@ main {
 	background: var(--main);
 }
 
-footer {
-	background: var(--footer);
-}
-
 .h1 {
 	background: var(--h1);
+}
+
+footer {
+	background: var(--footer);
 }
 
 footer a {

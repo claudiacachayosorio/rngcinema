@@ -1,8 +1,7 @@
 const AWS	= require('aws-sdk');
 const fs	= require('fs');
 const data	= require('data.json');
-
-const s3 = new AWS.S3();
+const s3	= new AWS.S3();
 
 // Random selection of theme object
 function getTheme() {
