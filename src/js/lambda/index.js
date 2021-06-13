@@ -1,5 +1,6 @@
-const data	= require('data.json');
 const AWS	= require('aws-sdk');
+const data	= require('data.json');
+const fs	= require('fs');
 
 const s3 = new AWS.S3();
 
@@ -22,7 +23,7 @@ function generateCSSBody(theme) {
 
 function generateJSBody(theme) {
 	const str = JSON.stringify(theme);
-	return `exports.theme = ${str}`;
+	return `const theme = ${str}`;
 }
 
 exports.handler = async (event) => {
