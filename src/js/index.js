@@ -6,6 +6,7 @@ const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+console.log(tag);
 
 
 // Event handler
@@ -39,6 +40,7 @@ const playerParams = {
 
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', playerParams);
+	console.log(player);
 }
 
 
@@ -46,7 +48,7 @@ function onYouTubeIframeAPIReady() {
 function setHTML(arr) {
 	const arrName = Object.keys(theme).find(k => k == arr);
 
-	for (i = 0; i < theme[arr].length; i++) {
+	for (let i = 0; i < theme[arr].length; i++) {
 		const id = `${arrName}-${i + 1}`;
 		const element = document.getElementById(id);
 		element.innerHTML = theme[arr][i];

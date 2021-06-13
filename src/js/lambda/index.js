@@ -1,5 +1,6 @@
-const data = require('data.json');
-const AWS = require('aws-sdk');
+const data	= require('data.json');
+const AWS	= require('aws-sdk');
+
 const s3 = new AWS.S3();
 
 function getTheme() {
@@ -11,7 +12,7 @@ function generateCSSBody(theme) {
 	const cssKeys = [ 'main', 'h1', 'footer', 'link' ];
 	let cssStr = '';
 
-	for (i = 0; i < cssKeys.length; i++) {
+	for (let i = 0; i < cssKeys.length; i++) {
 		const key = cssKeys[i];
 		const value = theme.colors[i];
 		cssStr += `--${key}: #${value};`;
@@ -21,7 +22,7 @@ function generateCSSBody(theme) {
 
 function generateJSBody(theme) {
 	const str = JSON.stringify(theme);
-	return `export const theme = ${str}`;
+	return `exports.theme = ${str}`;
 }
 
 exports.handler = async (event) => {
@@ -52,7 +53,7 @@ exports.handler = async (event) => {
 			Bucket: bucket,
 			Key: jsKey,
 			Body: jsBody,
-			ContentType: "application/javascript"
+			ContentType: "text/javascript"
 		}
 		const putJS = await s3.putObject(jsParams).promise();
 	} catch(err) {
