@@ -19,7 +19,7 @@ function getThemeColors(theme) {
 	for (let i = 0; i < varNames.length; i++) {
 		const key = varNames[i];
 		const value = theme.colors[i];
-		colors += `--${key}: ${value};`;
+		colors += `--${key}:${value};`;
 	}
 	return colors;
 }
@@ -27,7 +27,7 @@ function getThemeColors(theme) {
 // Inject custom properties into root level CSS declaration
 function generateCSSBody(theme) {
 	const colorVars = getThemeColors(theme);
-	return `:root {${colorVars}}`;
+	return `:root{${colorVars}}`;
 }
 
 // Concatenate theme object and script.js to one string
