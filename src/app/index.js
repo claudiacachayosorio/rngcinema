@@ -12,19 +12,25 @@ function getTheme() {
 	return theme;
 }
 
-// Create string of CSS custom properties at root level
-function generateCSSBody(theme) {
-	const cssVars = [ 'main', 'h1', 'footer', 'link' ];
-	let cssStr = '';
-	for (let i = 0; i < cssVars.length; i++) {
-		const key = cssVars[i];
+// Generate string of CSS variables for colors
+function getThemeColors(theme) {
+	const varNames = [ 'main', 'h1', 'footer', 'link' ];
+	let colors = '';
+	for (let i = 0; i < varNames.length; i++) {
+		const key = varNames[i];
 		const value = theme.colors[i];
-		cssStr += `--${key}: ${value};`;
+		colors += `--${key}: ${value};`;
 	}
-	return `:root {${cssStr}}`;
+	return colors;
 }
 
-// Concatenate theme object and script.js as one string
+// Inject custom properties into root level CSS declaration
+function generateCSSBody(theme) {
+	const colorVars = getThemeColors(theme);
+	return `:root {${colorVars}}`;
+}
+
+// Concatenate theme object and script.js to one string
 function generateJSBody(theme) {
 	const themeStr = `const theme = ${JSON.stringify(theme)}`;
 	const fileStr = fs.readFileSync('./script.js').toString();

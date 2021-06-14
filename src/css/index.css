@@ -119,7 +119,7 @@ h1 {
 	grid-area: title1;
 }
 
-.tile-title-2 {
+.tile_title-2 {
 	grid-area: title2;
 }
 
@@ -137,11 +137,8 @@ h1 {
 
 @media screen and (max-width: 875px) {
 	.board {
-		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-		grid-template-areas:
-			"titleh" "title1" "title2"
-			"actorh" "actor1" "actor2";
+		grid-template-rows: repeat(6, 1fr);
+		grid-template-areas: "titleh" "title1" "title2" "actorh" "actor1" "actor2";
 	}
 }
 
