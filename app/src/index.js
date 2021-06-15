@@ -39,9 +39,9 @@ function generateJSBody(theme) {
 
 exports.handler = async (event) => {
 
-	const bucket	= "rngcinema";
-	const cssKey	= "css/theme.css";
-	const jsKey		= "script.js";
+	const bucket	= process.env.S3_BUCKET;
+	const cssKey	= process.env.S3_KEY_CSS;
+	const jsKey		= process.env.S3_KEY_JS;
 
 	const theme		= getTheme();
 	const cssBody	= generateCSSBody(theme);

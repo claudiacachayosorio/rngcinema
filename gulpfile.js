@@ -1,23 +1,37 @@
-const { src, dest, watch, series } = require('gulp');
+const { src, dest, series } = require('gulp');
+require('dotenv').config();
 
 // Dependencies
-const zip			= require('gulp-zip')
-	  rename		= require('gulp-rename')
+const AWS			= require('aws-sdk'),
+	  zip			= require('gulp-zip'),
+	  rename		= require('gulp-rename'),
 	  awspublish	= require('gulp-awspublish');
 
 // Paths
-const distSrc	= './dist/**/*'
-	  appSrc	= './app/src/**/*'
-	  zipFile	= './app/function.zip';
+const distSrc	= './dist/**/*',
+	  appSrc	= './app/src/**/*',
+	  zipSrc	= './app/function.zip',
+	  zipFn		= 'function.zip';
 
-// S3 publisher
+// Globals
+const region		= process.env.AWS_REGION,
+	  bucket		= process.env.AWS_S3_BUCKET,
+	  functionName	= process.env.AWS_LAMBDA_NAME;
+
+// Service objects
+AWS.config.region = region;
 const s3options = {
 	params: {
-		Bucket: 'rngcinema'
+		Bucket: bucket
 	}
 };
 const publisher = awspublish.create(s3options);
+const lambda = new AWS.Lambda();
 
+
+// Tasks
+
+// Static files
 function publishDist() {
 	return src(distSrc)
 		.pipe(rename(path => path.dirname = '/src/' + path.dirname))
@@ -25,29 +39,43 @@ function publishDist() {
 		.pipe(awspublish.reporter());
 }
 
+// Lambda function
+
 function zipFunction() {
 	return src(appSrc)
-		.pipe(zip('function.zip'))
+		.pipe(zip(zipFn))
 		.pipe(dest('./app'));
 }
 
 function publishFunction() {
-	return src(zipFile)
+	return src(zipSrc)
 		.pipe(publisher.publish())
 		.pipe(awspublish.reporter());
 }
 
-const lambdaSeries = series(zipFunction, publishFunction);
-
-function watchTask() {
-	watch(distSrc, publishDist);
-	watch(appSrc, lambdaSeries);
+const lambdaUpdateParams = {
+	FunctionName: functionName,
+	S3Bucket: bucket,
+	S3Key: zipFn,
+	Publish: true
+}
+function updateLambda(cb) {
+	lambda.updateFunctionCode(lambdaUpdateParams, (err, data) => {
+		if (err) console.log(err, err.stack);
+		else	 console.log(data);
+	});
+	cb();
 }
 
+const lambdaSeries = series(
+	zipFunction,
+	publishFunction,
+	updateLambda
+);
+
+// Default tasks
 const defaultTask = series(
 	publishDist,
 	lambdaSeries,
-	//watchTask
 );
-
 exports.default = defaultTask;
