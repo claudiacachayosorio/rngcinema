@@ -53,16 +53,16 @@ function publishFunction() {
 		.pipe(awspublish.reporter());
 }
 
-const lambdaUpdateParams = {
-	FunctionName: functionName,
-	S3Bucket: bucket,
-	S3Key: zipFn,
-	Publish: true
-}
-function updateLambda(cb) {
-	lambda.updateFunctionCode(lambdaUpdateParams, (err, data) => {
-		if (err) console.log(err, err.stack);
-		else	 console.log(data);
+function deployFunction(cb) {
+	const params = {
+		FunctionName: functionName,
+		S3Bucket: bucket,
+		S3Key: zipFn,
+		Publish: true
+	}
+	lambda.updateFunctionCode(params, (err, data) => {
+		if (err) console.log(err);
+		else	 version = data.Version;
 	});
 	cb();
 }
@@ -70,7 +70,7 @@ function updateLambda(cb) {
 const lambdaSeries = series(
 	zipFunction,
 	publishFunction,
-	updateLambda
+	deployFunction
 );
 
 // Default tasks
