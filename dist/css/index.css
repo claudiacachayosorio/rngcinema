@@ -99,7 +99,7 @@ h1 {
 	width: 80%;
 	display: grid;
 	/* rows still full size if no content */
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: repeat(3, 1fr);
 	grid-template-areas:
 		"titleh actorh"
 		"title1 actor1"
@@ -209,7 +209,7 @@ footer {
 }
 
 
-/* Randomized styles
+/* Theme-specific styles
 ======================================================= */
 
 main {
