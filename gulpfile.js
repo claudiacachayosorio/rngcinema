@@ -60,6 +60,7 @@ function deployFunction(cb) {
 		S3Key: zipFn,
 		Publish: true
 	}
+
 	lambda.updateFunctionCode(params, (err, data) => {
 		if (err) console.log(err);
 		else	 version = data.Version;
