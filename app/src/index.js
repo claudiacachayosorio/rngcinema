@@ -60,13 +60,13 @@ exports.handler = async (event) => {
 
 	// Static files
 
-	let listResult;
+	let srcList;
 	try {
 		const srcParams = {
 			Bucket: bucket,
 			Prefix: srcPath
 		}
-		listResult = await s3.listObjectsV2(srcParams).promise();
+		srcList = await s3.listObjectsV2(srcParams).promise();
 
 	} catch(err) {
 		console.log(err);
@@ -75,20 +75,21 @@ exports.handler = async (event) => {
 
 	try {
 		let promises = [];
-		for (let i = 0; i < listResult.length; i++) {
-			const srcObjects = listResult.Contents;
-			const srcKey = srcObjects[i].Key;
+		const listArr = srcList.Contents;
+
+		for (let i = 0; i < listArr.length; i++) {
+			const srcKey = listArr[i].Key;
 			const destKey = srcKey.replace(srcPath, destPath);
 
 			const params = {
 				Bucket: bucket,
-				CopySource: `${bucket}/${key}`,
+				CopySource: `${bucket}/${srcKey}`,
 				Key: destKey
 			}
 
 			const copyResult = s3.copyObject(params, (err, data) => {
 				if (err) console.log(err);
-				else	 console.log(data);
+				else	 console.log(data.CopyObjectResult);
 			});
 
 			promises.push(copyResult);
@@ -135,6 +136,6 @@ exports.handler = async (event) => {
 
 
 	// INFO
-	console.log(`${cssKey} and ${jsKey} in ${bucket} updated to theme ${theme.title.join(' ')}`);
+	console.log(`${bucket}/${destPath} showing ${theme.title.join(' ')}`);
 
 }
