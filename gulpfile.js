@@ -63,7 +63,7 @@ function deployFunction(cb) {
 
 	lambda.updateFunctionCode(params, (err, data) => {
 		if (err) console.log(err);
-		else	 version = data.Version;
+		else	 console.log('Version: ' + data.Version);
 	});
 	cb();
 }
