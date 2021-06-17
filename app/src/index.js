@@ -3,7 +3,6 @@ const fs	= require('fs');
 const data	= require('data.json');
 const s3	= new AWS.S3();
 
-
 // Theme
 
 // Random selection of theme object
@@ -40,75 +39,26 @@ function generateJSBody(theme) {
 	return themeStr + fileStr;
 }
 
-
 // Handler
-exports.handler = async (event) => {
+
+exports.handler = async () => {
 
 	// Settings
 
 	const bucket	= process.env.AWS_S3_BUCKET,
-		  cssKey	= process.env.AWS_S3_KEY_CSS,
-		  jsKey		= process.env.AWS_S3_KEY_JS,
-		  srcPath	= process.env.AWS_S3_PATH_SRC;
+		  cssKey	= 'css/theme.css',
+		  jsKey		= 'script.js';
 
 	const theme		= getTheme(),
 		  cssBody	= generateCSSBody(theme),
 		  jsBody	= generateJSBody(theme);
 
-	const destPath	= 'dist/';
-
-
-	// Static files
-
-	let srcList;
-	try {
-		const srcParams = {
-			Bucket: bucket,
-			Prefix: srcPath
-		}
-		srcList = await s3.listObjectsV2(srcParams).promise();
-
-	} catch(err) {
-		console.log(err);
-		return;
-	}
-
-	try {
-		let promises = [];
-		const listArr = srcList.Contents;
-
-		for (let i = 0; i < listArr.length; i++) {
-			const srcKey = listArr[i].Key;
-			const destKey = srcKey.replace(srcPath, destPath);
-
-			const params = {
-				Bucket: bucket,
-				CopySource: `${bucket}/${srcKey}`,
-				Key: destKey
-			}
-
-			const copyResult = s3.copyObject(params, (err, data) => {
-				if (err) console.log(err);
-				else	 console.log(data.CopyObjectResult);
-			});
-
-			promises.push(copyResult);
-		}
-		await Promise.all(promises);
-
-	} catch(err) {
-		console.log(err);
-		return;
-	}
-
-
-	// Dynamic files
 
 	// Generate CSS file
 	try {
 		const cssParams = {
 			Bucket: bucket,
-			Key: destPath + cssKey,
+			Key: cssKey,
 			Body: cssBody,
 			ContentType: 'text/css'
 		}
@@ -123,7 +73,7 @@ exports.handler = async (event) => {
 	try {
 		const jsParams = {
 			Bucket: bucket,
-			Key: destPath + jsKey,
+			Key: jsKey,
 			Body: jsBody,
 			ContentType: 'text/javascript'
 		}
@@ -135,7 +85,7 @@ exports.handler = async (event) => {
 	}
 
 
-	// INFO
-	console.log(`${bucket}/${destPath} showing ${theme.title.join(' ')}`);
+	// Info logs
+	console.log(`${cssKey} and ${jsKey} now showing ${theme.title.join(' ')}`);
 
 }
