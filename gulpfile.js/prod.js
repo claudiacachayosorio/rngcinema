@@ -1,58 +1,17 @@
-const { src, dest, watch, series } = require('gulp');
+const { src, dest, series } = require('gulp');
 require('dotenv').config();
 
 // Dependencies
 const zip			= require('gulp-zip'),
 	  awspublish	= require('gulp-awspublish'),
-	  AWS			= require('aws-sdk'),
-	  fs			= require('fs');
+	  AWS			= require('aws-sdk');
 
 // Paths
-const distSrc		= 'dist/**/*',
+const distSrc		= 'dist/src/**/*',
 	  appSrc		= 'app/src/**/*',
-	  scriptSrc		= 'app/src/script.js',
 	  zipSrc		= 'app/function.zip',
-	  testPath		= 'test/',
-	  scriptPath	= 'test/script.js',
+	  appPath		= 'app/',
 	  zipFn			= 'function.zip';
-
-
-// Development Tasks
-
-const theme = {
-	"video":  "p9wE8dyzEJE",
-	"title":  [ "A Quiet Place" ],
-	"actors": [ "Emily Blunt", "John Krasinski" ],
-	"colors": [ "#4e5f52", "#a99375", "#181f21", "#a7585c" ]
-}
-const themeStr = `const theme = ${JSON.stringify(theme)}`;
-
-function copyDist() {
-	return src(distSrc)
-		.pipe(dest(testPath));
-}
-
-function generateTestJS(cb) {
-	const script = fs.readFileSync(scriptSrc).toString();
-	const data = themeStr + script;
-	fs.writeFileSync(scriptPath, data);
-	cb();
-}
-
-function watchTestFiles(cb) {
-	watch(distSrc, copyDist);
-	watch(scriptSrc, generateTestJS);
-	cb();
-}
-
-const dev = series(
-	copyDist,
-	generateTestJS,
-	watchTestFiles
-);
-
-
-// Production Tasks
 
 // AWS settings
 const region		= process.env.AWS_REGION,
@@ -70,6 +29,9 @@ const s3options = {
 const publisher = awspublish.create(s3options);
 const lambda = new AWS.Lambda();
 
+
+// Tasks
+
 // Static files
 
 function publishDist() {
@@ -83,7 +45,7 @@ function publishDist() {
 function zipFunction() {
 	return src(appSrc)
 		.pipe(zip(zipFn))
-		.pipe(dest('./app'));
+		.pipe(dest(appPath));
 }
 
 function publishFunction() {
@@ -113,18 +75,9 @@ const lambdaSeries = series(
 	deployFunction
 );
 
-const prod = series(
-	publishDist,
-	lambdaSeries,
-);
-
 
 // Exports
-
-const build = process.env.NODE_ENV === "production"
-	? prod
-	: dev;
-
-exports.default = build;
-exports.dev = dev;
-exports.prod = prod;
+module.exports = {
+	publishDist,
+	lambdaSeries
+}
