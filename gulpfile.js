@@ -45,7 +45,7 @@ function watchTestFiles(cb) {
 	cb();
 }
 
-const test = series(
+const dev = series(
 	copyDist,
 	generateTestJS,
 	watchTestFiles
@@ -113,16 +113,18 @@ const lambdaSeries = series(
 	deployFunction
 );
 
-const deploy = series(
+const prod = series(
 	publishDist,
 	lambdaSeries,
 );
 
 
-// Default Tasks
+// Exports
 
-const defaultTask = process.env.NODE_ENV === "production"
-	? deploy
-	: test;
+const build = process.env.NODE_ENV === "production"
+	? prod
+	: dev;
 
-exports.default = defaultTask;
+exports.default = build;
+exports.dev = dev;
+exports.prod = prod;
