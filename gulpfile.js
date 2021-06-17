@@ -1,4 +1,4 @@
-const { src, dest, series, parallel } = require('gulp');
+const { src, dest, watch, series } = require('gulp');
 require('dotenv').config();
 
 // Dependencies
@@ -39,10 +39,17 @@ function generateTestJS(cb) {
 	cb();
 }
 
-const test = parallel(
+function watchTestFiles(cb) {
+	watch(distSrc, copyDist);
+	watch(scriptSrc, generateTestJS);
+	cb();
+}
+
+const test = series(
 	copyDist,
-	generateTestJS
-)
+	generateTestJS,
+	watchTestFiles
+);
 
 
 // Production Tasks
