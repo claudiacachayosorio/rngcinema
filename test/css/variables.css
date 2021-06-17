@@ -1,0 +1,50 @@
+/* Fonts
+======================================================= */
+
+:root {
+	/* Styles */
+	--font-fallback:	Helvetica, Arial, sans-serif;
+	--font-main:		'Montserrat', var(--font-fallback);
+	--font-letter-sign:	'Oswald', var(--font-fallback);
+	--font-bold:		800;
+
+	/* Sizes */
+	--font-medium:		2rem;
+	--font-big:			3.5rem;
+	--font-small:		1.5rem;
+}
+
+
+/* Colors
+======================================================= */
+
+:root {
+	/* Original neutral theme */
+	--og-light-grey:	#dfdedd;
+	--og-medium-grey:	#aeaead;
+	--og-dark-grey:		#626060;
+	--og-beige:			#e6c29e;
+	--og-brown:			#605243;
+
+	/* Modified neutral colors */
+	--light-grey:		#e9e8e7;
+	--medium-grey:		#aeaead;
+	--dark-grey:		#2e2d2d;
+	--light-beige:		#f8ede2;
+	--beige:			#e6c29e;
+	--brown:			#605243;
+
+	/* From snacks SVGs */
+	--popcorn-red:		#dd3e46;
+	--soda-red:			#e1462b;
+}
+
+
+/* Effects
+======================================================= */
+
+:root {
+	--box-shadow:		rgba(0, 0, 0, 0.7) 5px 5px 10px;
+	--text-shadow:		rgba(0, 0, 0, 0.5) 1px 1px 3px;
+	--filter-shadow:	drop-shadow(rgba(0, 0, 0, 0.7) 3px 3px 4px);
+}
