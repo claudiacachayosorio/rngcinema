@@ -1,46 +1,42 @@
-const { src, dest, watch } = require('gulp');
+const { src, dest, parallel } = require('gulp');
+const fs = require('fs');
 
-// Dependencies
-const header	= require('gulp-header');
+// Plugins
+const header = require('gulp-header');
 
-// Paths
-const distSrc	= 'dist/src/**/*',
-	  scriptSrc	= 'app/src/script.js',
-	  devPath	= 'dist/dev/';
-
-// Dev variables
+// Placeholder theme
 const theme = {
 	"video":  "p9wE8dyzEJE",
 	"title":  [ "A Quiet Place" ],
 	"actors": [ "Emily Blunt", "John Krasinski" ],
 	"colors": [ "#4e5f52", "#a99375", "#181f21", "#a7585c" ]
 }
+const themeStr = JSON.stringify(theme);
+
+const $ = theme.colors;
+const css = `:root{
+	--main:${$[0]};
+	--h1:${$[1]};
+	--footer:${$[2]};
+	--link:${$[3]};
+}`;
 
 
 // Tasks
 
-function copyDist() {
-	return src(distSrc)
-		.pipe(dest(devPath));
-}
-
-function generateJS() {
-	const text = `const theme = ${JSON.stringify(theme)}`;
-	return src(scriptSrc)
+function tempJS() {
+	const text = 'var theme = ' + themeStr;
+	return src('src/app/script.js')
 		.pipe(header(text))
-		.pipe(dest(devPath));
+		.pipe(dest('build'));
 }
 
-function watchFiles(cb) {
-	watch(distSrc, copyDist);
-	watch(scriptSrc, generateJS);
-	cb();
+function tempCSS(cb) {
+	fs.writeFile('build/theme.css', css, cb);
 }
+
+const tempFiles = parallel(tempJS, tempCSS);
 
 
 // Exports
-module.exports = {
-	copyDist,
-	generateJS,
-	watchFiles
-};
+module.exports = { tempFiles };

@@ -1,17 +1,10 @@
 const { src, dest, series } = require('gulp');
+const AWS = require('aws-sdk');
 require('dotenv').config();
 
-// Dependencies
+// Plugins
 const zip			= require('gulp-zip'),
-	  awspublish	= require('gulp-awspublish'),
-	  AWS			= require('aws-sdk');
-
-// Paths
-const distSrc		= 'dist/src/**/*',
-	  appSrc		= 'app/src/**/*',
-	  zipSrc		= 'app/function.zip',
-	  appPath		= 'app/',
-	  zipFn			= 'function.zip';
+	  awspublish	= require('gulp-awspublish');
 
 // AWS settings
 const region		= process.env.AWS_REGION,
@@ -30,26 +23,24 @@ const publisher = awspublish.create(s3options);
 const lambda = new AWS.Lambda();
 
 
-// Tasks
+// Build
 
-// Static files
-
-function publishDist() {
-	return src(distSrc)
-		.pipe(publisher.publish())
-		.pipe(awspublish.reporter());
+function copyApp() {
+	return src('src/app/**/*')
+		.pipe(dest('build/zip'));
 }
 
-// Lambda function
+
+// Deploy
 
 function zipFunction() {
-	return src(appSrc)
-		.pipe(zip(zipFn))
-		.pipe(dest(appPath));
+	return src('build/zip/**/*')
+		.pipe(zip('function.zip'))
+		.pipe(dest('build'));
 }
 
-function publishFunction() {
-	return src(zipSrc)
+function publishBuild() {
+	return src('build/**/*', { ignore: 'build/zip/**/*' })
 		.pipe(publisher.publish())
 		.pipe(awspublish.reporter());
 }
@@ -58,26 +49,18 @@ function deployFunction(cb) {
 	const params = {
 		FunctionName: functionName,
 		S3Bucket: bucket,
-		S3Key: zipFn,
+		S3Key: 'function.zip',
 		Publish: true
 	}
-
-	lambda.updateFunctionCode(params, (err, data) => {
-		if (err) console.log(err);
-		else	 console.log('version ' + data.Version);
-	});
-	cb();
+	lambda.updateFunctionCode(params, cb);
 }
 
-const lambdaSeries = series(
+const publish = series(
 	zipFunction,
-	publishFunction,
+	publishBuild,
 	deployFunction
 );
 
 
 // Exports
-module.exports = {
-	publishDist,
-	lambdaSeries
-}
+module.exports = { copyApp, publish };

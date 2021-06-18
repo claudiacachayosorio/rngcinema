@@ -1,4 +1,4 @@
-const theme = {"video":"p9wE8dyzEJE","title":["A Quiet Place"],"actors":["Emily Blunt","John Krasinski"],"colors":["#4e5f52","#a99375","#181f21","#a7585c"]}// Letter board
+var theme = {"video":"p9wE8dyzEJE","title":["A Quiet Place"],"actors":["Emily Blunt","John Krasinski"],"colors":["#4e5f52","#a99375","#181f21","#a7585c"]}// Letter board
 
 function setHTML(arr) {
 	// Get string of target array name
