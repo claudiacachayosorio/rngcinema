@@ -10,7 +10,7 @@ const theme = {
 	"title":  [ "A Quiet Place" ],
 	"actors": [ "Emily Blunt", "John Krasinski" ],
 	"colors": [ "#4e5f52", "#a99375", "#181f21", "#a7585c" ]
-}
+};
 const themeStr = JSON.stringify(theme);
 
 const $ = theme.colors;
@@ -25,15 +25,15 @@ const css = `:root{
 // Tasks
 
 function tempJS() {
-	const text = 'var theme = ' + themeStr;
+	const text = `var theme = ${themeStr};`;
 	return src('src/app/script.js')
 		.pipe(header(text))
 		.pipe(dest('build'));
-}
+};
 
 function tempCSS(cb) {
 	fs.writeFile('build/theme.css', css, cb);
-}
+};
 
 const tempFiles = parallel(tempJS, tempCSS);
 

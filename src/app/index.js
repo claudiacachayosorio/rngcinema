@@ -12,7 +12,7 @@ function getTheme() {
 	// add hash to hex values
 	theme.colors.forEach((hex, i) => theme.colors[i] = `#${hex}`);
 	return theme;
-}
+};
 
 // Generate string of CSS variables for colors
 function getThemeColors(theme) {
@@ -22,22 +22,22 @@ function getThemeColors(theme) {
 		const key = varNames[i];
 		const value = theme.colors[i];
 		colors += `--${key}:${value};`;
-	}
+	};
 	return colors;
-}
+};
 
 // Inject custom properties into root level CSS declaration
 function generateCSSBody(theme) {
 	const colorVars = getThemeColors(theme);
 	return `:root{${colorVars}}`;
-}
+};
 
 // Concatenate theme object and script.js to one string
 function generateJSBody(theme) {
-	const themeStr = `const theme = ${JSON.stringify(theme)}`;
+	const themeStr = `var theme = ${JSON.stringify(theme)};`;
 	const fileStr = fs.readFileSync('./script.js').toString();
 	return themeStr + fileStr;
-}
+};
 
 // Handler
 
@@ -46,7 +46,7 @@ exports.handler = async () => {
 	// Settings
 
 	const bucket	= process.env.AWS_S3_BUCKET,
-		  cssKey	= 'css/theme.css',
+		  cssKey	= 'theme.css',
 		  jsKey		= 'script.js';
 
 	const theme		= getTheme(),
@@ -61,13 +61,13 @@ exports.handler = async () => {
 			Key: cssKey,
 			Body: cssBody,
 			ContentType: 'text/css'
-		}
+		};
 		const putCSSResult = await s3.putObject(cssParams).promise();
 
 	} catch(err) {
 		console.log(err);
 		return;
-	}
+	};
 
 	// Generate JS file
 	try {
@@ -76,16 +76,16 @@ exports.handler = async () => {
 			Key: jsKey,
 			Body: jsBody,
 			ContentType: 'text/javascript'
-		}
+		};
 		const putJSResult = await s3.putObject(jsParams).promise();
 
 	} catch(err) {
 		console.log(err);
 		return;
-	}
+	};
 
 
 	// Info logs
 	console.log(`${cssKey} and ${jsKey} now showing ${theme.title.join(' ')}`);
 
-}
+};

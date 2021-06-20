@@ -12,8 +12,8 @@ function setHTML(arr) {
 		const div = document.getElementById(id);
 		// Inject content of current array element to div
 		div.innerHTML = theme[arr][i];
-	}
-}
+	};
+};
 setHTML('title');
 setHTML('actors');
 
@@ -42,8 +42,8 @@ function onPlayerStateChange(e) {
 			// fade to initial color
 			mainElement.style.background = themeBg;
 			break;
-	}
-}
+	};
+};
 
 // Create player object
 const playerParams = {
@@ -53,9 +53,9 @@ const playerParams = {
 	events: {
 		'onStateChange': onPlayerStateChange
 	}
-}
+};
 
 let player;
 function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', playerParams);
-}
+};

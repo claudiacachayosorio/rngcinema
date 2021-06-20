@@ -20,13 +20,13 @@ function setDEV(cb) {
 	process.env.NODE_ENV = 'development';
 	console.log('currently in ' + process.env.NODE_ENV);
 	cb();
-}
+};
 
 function setPROD(cb) {
 	process.env.NODE_ENV = 'production';
 	console.log('currently in ' + process.env.NODE_ENV);
 	cb();
-}
+};
 
 
 // Build
@@ -39,7 +39,7 @@ function js() {
 	return src(path + '/script.js')
 		.pipe(terser())
 		.pipe(dest(path));
-}
+};
 
 function css() {
 	const plugins = [
@@ -52,22 +52,22 @@ function css() {
 		.pipe(postcss(plugins))
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('build'));
-}
+};
 
 function html() {
 	const inOptions = {
 		includePaths: 'assets'
-	}
+	};
 	const minOptions = {
 		collapseWhitespace: true,
 		removeComments: true
-	}
+	};
 
 	return src('src/**/*.html')
 		.pipe(include(inOptions))
 		.pipe(htmlmin(minOptions))
 		.pipe(dest('build'));
-}
+};
 
 const build = parallel(js, css, html);
 
@@ -75,9 +75,13 @@ const build = parallel(js, css, html);
 // Workers
 
 function cleaner() {
-	return src('build/**/*', { read: false })
+	const options = {
+		read: false,
+		ignore: 'build/favicon.ico'
+	};
+	return src('build/**/*', options)
 		.pipe(clean());
-}
+};
 
 function watcher(cb) {
 	const paths = [
@@ -86,7 +90,7 @@ function watcher(cb) {
 	];
 	watch(paths, build);
 	cb();
-}
+};
 
 
 // Exports

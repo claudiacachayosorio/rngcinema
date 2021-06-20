@@ -28,7 +28,7 @@ const lambda = new AWS.Lambda();
 function copyApp() {
 	return src('src/app/**/*')
 		.pipe(dest('build/zip'));
-}
+};
 
 
 // Deploy
@@ -37,13 +37,13 @@ function zipFunction() {
 	return src('build/zip/**/*')
 		.pipe(zip('function.zip'))
 		.pipe(dest('build'));
-}
+};
 
 function publishBuild() {
 	return src('build/**/*', { ignore: 'build/zip/**/*' })
 		.pipe(publisher.publish())
 		.pipe(awspublish.reporter());
-}
+};
 
 function deployFunction(cb) {
 	const params = {
@@ -51,9 +51,9 @@ function deployFunction(cb) {
 		S3Bucket: bucket,
 		S3Key: 'function.zip',
 		Publish: true
-	}
+	};
 	lambda.updateFunctionCode(params, cb);
-}
+};
 
 const publish = series(
 	zipFunction,
