@@ -33,7 +33,8 @@ a:hover {
 }
 
 /* set dimensions with span */
-.i a, .i svg {
+.i svg,
+.i-link {
 	height: inherit;
 	width: inherit;
 }

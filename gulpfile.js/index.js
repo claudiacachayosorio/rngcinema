@@ -5,6 +5,7 @@ const { copyApp, publish } = require('./prod');
 // Plugins
 const sourcemaps	= require('gulp-sourcemaps'),
 	  clean			= require('gulp-clean'),
+	  include		= require('gulp-include'),
 	  terser		= require('gulp-terser'),
 	  concatcss		= require('gulp-concat-css'),
 	  postcss		= require('gulp-postcss'),
@@ -15,13 +16,13 @@ const sourcemaps	= require('gulp-sourcemaps'),
 
 // Environment
 
-function setDev(cb) {
+function setDEV(cb) {
 	process.env.NODE_ENV = 'development';
 	console.log('currently in ' + process.env.NODE_ENV);
 	cb();
 }
 
-function setProd(cb) {
+function setPROD(cb) {
 	process.env.NODE_ENV = 'production';
 	console.log('currently in ' + process.env.NODE_ENV);
 	cb();
@@ -45,8 +46,7 @@ function css() {
 		autoprefixer(),
 		cssnano()
 	];
-
-	return src('src/dist/css/**/*.css')
+	return src('src/css/**/*.css')
 		.pipe(concatcss('index.css'))
 		.pipe(sourcemaps.init())
 		.pipe(postcss(plugins))
@@ -55,15 +55,24 @@ function css() {
 }
 
 function html() {
-	return src('src/dist/html/**/*.html')
-		.pipe(htmlmin())
+	const inOptions = {
+		includePaths: 'assets'
+	}
+	const minOptions = {
+		collapseWhitespace: true,
+		removeComments: true
+	}
+
+	return src('src/**/*.html')
+		.pipe(include(inOptions))
+		.pipe(htmlmin(minOptions))
 		.pipe(dest('build'));
 }
 
 const build = parallel(js, css, html);
 
 
-// Tasks
+// Workers
 
 function cleaner() {
 	return src('build/**/*', { read: false })
@@ -71,7 +80,10 @@ function cleaner() {
 }
 
 function watcher(cb) {
-	const paths = [ 'src/dist/**/*', 'src/app/script.js' ];
+	const paths = [
+		'src/dist/**/*',
+		'src/app/script.js'
+	];
 	watch(paths, build);
 	cb();
 }
@@ -80,22 +92,31 @@ function watcher(cb) {
 // Exports
 
 const dev = series(
-	setDev,
+	setDEV,
 	tempFiles,
 	build,
-	watcher
 );
 
 const prod = series(
-	setProd,
+	setPROD,
 	cleaner,
 	copyApp,
 	build,
 	publish
 );
 
+const live = series(
+	dev,
+	watcher
+);
+
 const deploy = process.env.NODE_ENV === 'production' ? prod : dev;
 
-exports.default = deploy;
-exports.dev = dev;
-exports.prod = prod;
+// Testing Gulp tasks
+const test = html;
+
+exports.default	= deploy;
+exports.dev		= dev;
+exports.prod	= prod;
+exports.live	= live;
+exports.test	= test || deploy;
