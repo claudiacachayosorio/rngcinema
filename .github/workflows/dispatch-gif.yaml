@@ -9,6 +9,6 @@ jobs:
       - uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: generate new gif
-          repo: claudiacachayosorio/demo_gifs
+          repo: claudiacachayosorio/demo-gifs
           token: ${{ secrets.PAT_DISPATCH_GIF }}
           inputs: '{ "repo": "rngcinema", "url": "http://rngcinema.s3-website-us-east-1.amazonaws.com/" }'
