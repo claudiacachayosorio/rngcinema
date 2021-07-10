@@ -1,5 +1,7 @@
 {
   "name": "rngcinema",
+  "private": true,
+  "homepage": "http://rngcinema.s3-website-us-east-1.amazonaws.com/",
   "scripts": {},
   "devDependencies": {
     "autoprefixer": "^10.2.6",
