@@ -2,6 +2,7 @@
 
 Movie theater themed website. Displays a trailer and complementary color theme selected at random every day. Built with Node.js, AWS Lambda, Youtube IFrame and plain CSS. My take on [this prompt](https://www.codementor.io/projects/web/personal-website-with-randomly-generated-design-atx32ht3j3) by [Tash Postolovski](https://github.com/npostolovski).
 
+[![demo][demo]][demo-url]
 
 
 ## Credits
