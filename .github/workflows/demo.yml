@@ -9,13 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v2
-
       - name: dispatch generator
         uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: generator
           repo: claudiacachayosorio/demo-gifs
-          token: ${{ secrets.PAT_DISPATCH_GIF }}
+          token: ${{ secrets.DEMO_TOKEN }}
           inputs: '{ "repo": "${{ github.repository }}" }'
