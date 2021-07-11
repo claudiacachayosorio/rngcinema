@@ -16,9 +16,3 @@ Movie theater themed website. Displays a trailer and complementary color theme s
 
 ### Others
 * [Neutral color theme](https://color.adobe.com/Neutral-color-theme-17038838) by Sarah Greenwood
-
-
-
-
-[demo]: https://cco-demo-gifs.s3.amazonaws.com/rngcinema.gif
-[demo-url]: http://rngcinema.s3-website-us-east-1.amazonaws.com/
